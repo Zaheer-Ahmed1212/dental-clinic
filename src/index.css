@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background-color: #bb5e2e;
+  color: #f1eee6;
+}
+
+body {
+  background-color: #f1eee6;
+}
+
+/* subtle paper grain overlay used across sections */
+.grain {
+  position: relative;
+}
+.grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+}
+
+/* signature arc line-draw animation */
+.arc-path {
+  stroke-dasharray: var(--dash, 1000);
+  stroke-dashoffset: var(--dash, 1000);
+  transition: stroke-dashoffset 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.arc-path.arc-visible {
+  stroke-dashoffset: 0;
+}
+
+/* focus visibility for accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #bb5e2e;
+  outline-offset: 3px;
+}
+
+/* reveal-on-scroll base states */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal,
+  .arc-path {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+}
+
+/* custom slim scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #e8e2d3;
+}
+::-webkit-scrollbar-thumb {
+  background: #8b9c8c;
+  border-radius: 0;
+}
