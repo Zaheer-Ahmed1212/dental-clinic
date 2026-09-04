@@ -1,199 +1,85 @@
-import { ArrowUpRight, Phone, Star } from 'lucide-react'
-import SmileArc from './ui/SmileArc'
+
+import { ArrowUpRight, Phone } from 'lucide-react'
 import Reveal from './ui/Reveal'
-import heroimg from '../images/dentalhero.jpg'
+import hero from '../images/Hero2.jpg'
 
 export default function Hero() {
   return (
-    <section
-      id="top"
-      className="relative overflow-hidden bg-porcelain pt-36 pb-20 md:pt-44 md:pb-28"
-    >
-      {/* Background image */}
-      <div
-        className="absolute inset-0 bg-cover bg-no-repeat bg-center opacity-60 pointer-events-none"
-        style={{ backgroundImage: `url(${heroimg})` }}
-      />
+    <section id="top" className="relative min-h-[100svh] overflow-hidden bg-[#F7FCFE]">
+      <div className="absolute inset-0">
+        <img
+          src={hero}
+          alt="Dental care"
+          className="h-full w-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#315568]/95 via-[#315568]/70 via-50% to-transparent" />
+      </div>
 
-      {/* faint oversized wordmark in the backdrop */}
-      <span
-        aria-hidden="true"
-        className="pointer-events-none select-none absolute -top-6 -left-4 font-display text-[26vw] leading-none text-ink/[0.03] hidden md:block"
-      >
-        Solace
-      </span>
+      <div className="relative z-10 flex min-h-[100svh] items-center">
+        <div className="mx-auto w-full max-w-[1400px] px-5 pt-28 pb-24 sm:px-6 md:px-10 md:pt-32 lg:pt-28">
+          <div className="max-w-[720px]">
+            <Reveal>
+              <span className="font-sans text-[9px] uppercase tracking-[0.2em] text-[#9DDFEC] drop-shadow-[0_2px_7px_rgba(0,0,0,0.9)] sm:text-[10px] md:text-[11px] md:tracking-[0.22em]">
+                Thoughtful dentistry, beautifully done
+              </span>
+            </Reveal>
 
-      {/* Main content */}
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 grid grid-cols-1 lg:grid-cols-12 gap-y-16 gap-x-8">
+            <Reveal delay={100}>
+              <h1 className="mt-4 max-w-[650px] font-serif text-[44px] leading-[0.98] tracking-[-0.035em] text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)] sm:text-[54px] md:mt-5 md:text-[68px] lg:max-w-[720px] lg:text-[86px] xl:text-[94px]">
+                A healthier smile starts with feeling looked after.
+              </h1>
+            </Reveal>
 
-        {/* left column — copy */}
-        <div className="lg:col-span-7 flex flex-col gap-8">
+            <Reveal delay={180}>
+              <p className="mt-6 max-w-[500px] font-sans text-[14px] leading-[1.65] text-white/85 drop-shadow-[0_3px_9px_rgba(0,0,0,0.9)] sm:text-[15px] md:mt-7 md:text-[17px] lg:text-[18px]">
+                Modern dentistry with a calmer approach. From routine hygiene
+                to complete smile transformations, every treatment is planned
+                around you.
+              </p>
+            </Reveal>
 
-          <Reveal>
-            <span className="font-mono text-[11px] tracking-widest2 uppercase text-copper">
-              Boutique dental care — Fitzroy, Melbourne
-            </span>
-          </Reveal>
+            <Reveal delay={260}>
+              <div className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:items-center">
+                <a
+                  href="#appointment"
+                  className="group inline-flex w-full items-center justify-center gap-3 rounded-lg bg-[#315568] px-6 py-3.5 font-sans text-[13px] font-medium text-white shadow-xl transition-all duration-300 hover:bg-[#3FA4BE] sm:w-auto sm:text-[14px]"
+                >
+                  Book a visit
+                  <ArrowUpRight
+                    size={17}
+                    strokeWidth={1.6}
+                    className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+                  />
+                </a>
 
-          <Reveal delay={80}>
-            <h1 className="font-display font-medium text-ink text-[clamp(2.6rem,6vw,4.6rem)] leading-[1.04] max-w-2xl">
-              Dentistry designed around
-              <span className="italic text-copper"> unhurried</span> certainty.
-            </h1>
-          </Reveal>
-
-          <Reveal delay={160}>
-            <p className="text-lg  font-semibold text-charcoal/80 italic max-w-md leading-relaxed">
-              No rushed ten-minute slots, no waiting-room anxiety. Just a small
-              studio, longer appointments, and a plan you actually understand
-              before we start.
-            </p>
-          </Reveal>
-
-          <Reveal delay={240}>
-            <div className="flex flex-wrap items-center gap-4 pt-2">
-
-              <a
-                href="#appointment"
-                className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-ink text-porcelain hover:bg-copper transition-colors duration-300"
-              >
-                <span className="text-sm tracking-wide">
-                  Book a consultation
-                </span>
-
-                <ArrowUpRight
-                  size={16}
-                  strokeWidth={1.75}
-                  className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                />
-              </a>
-
-              <a
-                href="tel:+61390001148"
-                className="inline-flex rounded-lg  items-center gap-2 px-6 py-3.5 border border-ink/25 text-ink hover:border-ink transition-colors duration-300"
-              >
-                <Phone size={16} strokeWidth={1.75} />
-
-                <span className="font-mono text-sm">
-                  03333333333
-                </span>
-              </a>
-
-            </div>
-          </Reveal>
-
-          <Reveal delay={320}>
-            <div className="flex flex-wrap items-center gap-x-10 gap-y-4 pt-8 border-t border-ink/10 mt-4">
-
-              <div className="flex items-center gap-2">
-
-                <div className="flex text-copper">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star
-                      key={i}
-                      size={14}
-                      fill="currentColor"
-                      strokeWidth={0}
-                    />
-                  ))}
-                </div>
-
-                <span className="font-mono text-xs text-charcoal/60">
-                  4.9 · 640 reviews
-                </span>
-
+                <a
+                  href="tel:+61390001148"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-white/40 px-6 py-3.5 font-sans text-[13px] font-medium text-white transition-all duration-300 hover:border-[#9DDFEC] hover:text-[#9DDFEC] sm:w-auto sm:text-[14px]"
+                >
+                  <Phone size={16} strokeWidth={1.7} />
+                  <span>0333333333</span>
+                </a>
               </div>
-
-              <span className="font-mono text-xs text-charcoal/60">
-                18 years in Fitzroy
-              </span>
-
-              <span className="font-mono text-xs text-charcoal/60">
-                Same-week appointments
-              </span>
-
-            </div>
-          </Reveal>
-
+            </Reveal>
+          </div>
         </div>
+      </div>
 
-        {/* right column — signature arc diagram composition */}
-        <div className="lg:col-span-5 relative flex items-center justify-center min-h-[360px]">
+      <div className="absolute bottom-5 left-0 right-0 z-10 sm:bottom-7">
+        <div className="mx-auto flex max-w-[1400px] items-center justify-between px-5 sm:px-6 md:px-10">
+          <span className="font-sans text-[8px] uppercase tracking-[0.18em] text-white/60 sm:text-[9px] md:text-[10px] md:tracking-[0.2em]">
+            Your smile, our priority
+          </span>
 
-          <Reveal
-            delay={200}
-            className="relative w-full max-w-md"
+          <a
+            href="#services"
+            className="hidden font-sans text-[9px] uppercase tracking-[0.18em] text-white/60 transition-colors duration-300 hover:text-[#9DDFEC] sm:block md:text-[10px] md:tracking-[0.2em]"
           >
-            <SmileArc
-              variant="hero"
-              className="w-full h-auto"
-            />
-
-            {/* floating annotation labels around the arc */}
-
-            <div className="absolute -top-2 left-2 md:left-6 bg-porcelain border border-ink/15 px-3 py-2 max-w-[150px] animate-floatY">
-              <p className="font-mono text-[10px] uppercase tracking-wide text-copper">
-                01
-              </p>
-
-              <p className="text-xs text-charcoal/80 leading-snug">
-                Digital scanning, no messy impressions
-              </p>
-            </div>
-
-            <div
-              className="absolute top-1/3 -right-2 md:right-0 bg-ink text-porcelain px-3 py-2 max-w-[150px] animate-floatY"
-              style={{ animationDelay: '1.2s' }}
-            >
-              <p className="font-mono text-[10px] uppercase tracking-wide text-copper-light">
-                02
-              </p>
-
-              <p className="text-xs leading-snug">
-                Porcelain veneers, matched by hand
-              </p>
-            </div>
-
-            <div
-              className="absolute bottom-0 left-1/4 bg-porcelain border border-ink/15 px-3 py-2 max-w-[160px] animate-floatY"
-              style={{ animationDelay: '2.4s' }}
-            >
-              <p className="font-mono text-[10px] uppercase tracking-wide text-copper">
-                03
-              </p>
-
-              <p className="text-xs text-charcoal/80 leading-snug">
-                Same-day whitening before big days
-              </p>
-            </div>
-
-          </Reveal>
-
-          {/* next-availability card */}
-          <Reveal
-            delay={420}
-            className="absolute -bottom-6 md:-bottom-10 right-0 md:right-4 bg-ink text-porcelain px-5 py-4 w-56 shadow-[0_20px_60px_-15px_rgba(18,53,52,0.5)]"
-          >
-            <p className="font-mono text-[10px] tracking-widest2 uppercase text-sage-light">
-              Next available
-            </p>
-
-            <p className="font-display text-xl mt-1">
-              Tomorrow, 10:30am
-            </p>
-
-            <a
-              href="#appointment"
-              className="text-xs text-copper-light underline underline-offset-4 mt-2 inline-block"
-            >
-              Claim this slot
-            </a>
-
-          </Reveal>
-
+            Explore our care ↓
+          </a>
         </div>
-
       </div>
     </section>
   )
 }
+

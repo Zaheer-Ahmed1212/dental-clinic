@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import useReveal from '../hooks/useReveal'
 
 const STATS = [
@@ -13,15 +13,21 @@ function CountUp({ target, decimals = 0, suffix = '', active }) {
 
   useEffect(() => {
     if (!active) return
+
     const duration = 1400
     const start = performance.now()
 
     const tick = (now) => {
       const progress = Math.min((now - start) / duration, 1)
       const eased = 1 - Math.pow(1 - progress, 3)
+
       setValue(target * eased)
-      if (progress < 1) requestAnimationFrame(tick)
+
+      if (progress < 1) {
+        requestAnimationFrame(tick)
+      }
     }
+
     requestAnimationFrame(tick)
   }, [active, target])
 
@@ -40,19 +46,28 @@ export default function Stats() {
   const [ref, visible] = useReveal({ threshold: 0.4 })
 
   return (
-    <section ref={ref} className="bg-ink text-porcelain py-20 md:py-24">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-8">
+    <section
+      ref={ref}
+      className="bg-[#E6F4F8] py-20 text-[#315568] md:py-24"
+    >
+      <div className="mx-auto max-w-7xl px-6 md:px-10">
+        <div className="grid grid-cols-2 gap-10 md:grid-cols-4 md:gap-8">
           {STATS.map((stat, i) => (
             <div
               key={stat.label}
-              className="border-l border-porcelain/15 pl-5 md:pl-6"
+              className="border-l border-[#B9DDE7] pl-5 md:pl-6"
               style={{ transitionDelay: `${i * 80}ms` }}
             >
-              <p className="font-mono text-4xl md:text-5xl text-copper-light tabular-nums">
-                <CountUp target={stat.value} decimals={stat.decimals || 0} suffix={stat.suffix} active={visible} />
+              <p className="font-sans text-4xl font-semibold tracking-[-0.02em] text-[#56B8D0] tabular-nums md:text-5xl">
+                <CountUp
+                  target={stat.value}
+                  decimals={stat.decimals || 0}
+                  suffix={stat.suffix}
+                  active={visible}
+                />
               </p>
-              <p className="mt-2 text-xs md:text-sm text-porcelain/60 leading-snug max-w-[14ch]">
+
+              <p className="mt-2 max-w-[14ch] font-sans text-xs leading-snug text-[#6B8793] md:text-sm">
                 {stat.label}
               </p>
             </div>

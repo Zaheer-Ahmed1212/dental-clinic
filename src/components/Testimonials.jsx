@@ -42,27 +42,27 @@ export default function Testimonials() {
   const prev = () => setIndex((i) => (i - 1 + REVIEWS.length) % REVIEWS.length)
 
   return (
-    <section id="reviews" className=" py-24 md:py-32">
-      <div className=" max-w-[1400px] mx-auto px-6 md:px-10">
-
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-
-          {/* Left */}
+    <section
+      id="reviews"
+      className="bg-[#F7FCFE] py-24 text-[#315568] md:py-32"
+    >
+      <div className="mx-auto max-w-7xl px-6 md:px-10">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <Reveal>
               <SectionHeading
                 eyebrow="Patient reviews"
                 title="What it actually feels like to be a patient here."
+                tone="dark"
               />
             </Reveal>
 
             <Reveal delay={140}>
-              <div className="flex items-center gap-4 mt-8">
-
+              <div className="mt-8 flex items-center gap-4">
                 <button
                   onClick={prev}
                   aria-label="Previous review"
-                  className="w-11 h-11 border border-ink/25 flex items-center justify-center hover:border-ink hover:bg-ink hover:text-porcelain transition-colors duration-300"
+                  className="flex h-11 w-11 items-center justify-center border border-[#315568]/25 text-[#315568] transition-colors duration-300 hover:border-[#315568] hover:bg-[#315568] hover:text-white"
                 >
                   <ArrowLeft size={16} strokeWidth={1.75} />
                 </button>
@@ -70,78 +70,58 @@ export default function Testimonials() {
                 <button
                   onClick={next}
                   aria-label="Next review"
-                  className="w-11 h-11 border border-ink/25 flex items-center justify-center hover:border-ink hover:bg-ink hover:text-porcelain transition-colors duration-300"
+                  className="flex h-11 w-11 items-center justify-center border border-[#315568]/25 text-[#315568] transition-colors duration-300 hover:border-[#315568] hover:bg-[#315568] hover:text-white"
                 >
                   <ArrowRight size={16} strokeWidth={1.75} />
                 </button>
 
-                <span className="font-mono text-xs text-charcoal/45 ml-2">
+                <span className="ml-2 font-mono text-xs text-[#6B8793]/70">
                   {String(index + 1).padStart(2, '0')} /{' '}
                   {String(REVIEWS.length).padStart(2, '0')}
                 </span>
-
               </div>
             </Reveal>
           </div>
 
-          {/* Review Card */}
-         {/* Review Card */}
-<div className="lg:col-span-7 lg:col-start-6  flex flex-col justify-center">
-  <Reveal key={review.name} delay={0}>
-    <div
-      className="
-      rounded-lg
-        bg-transparent
-        w-full
-        max-w-xl
-        p-6
-        md:p-8
-        shadow-[0_12px_35px_rgba(20,25,22,0.10)]
-        transition-shadow
-        duration-300
-        hover:shadow-[0_16px_45px_rgba(20,25,22,0.14)]
-      "
-    >
-      {/* Stars */}
-      <div className="flex text-copper mb-5">
-        {Array.from({ length: review.rating }).map((_, i) => (
-          <Star
-            key={i}
-            size={14}
-            fill="currentColor"
-            strokeWidth={0}
-          />
-        ))}
-      </div>
+          <div className="flex flex-col justify-center lg:col-span-7 lg:col-start-6">
+            <Reveal key={review.name} delay={0}>
+              <div className="w-full max-w-xl rounded-lg border border-[#C8E4EC] bg-white p-6 shadow-[0_12px_35px_rgba(49,85,104,0.08)] transition-shadow duration-300 hover:shadow-[0_16px_45px_rgba(49,85,104,0.12)] md:p-8">
+                <div className="mb-5 flex text-[#56B8D0]">
+                  {Array.from({ length: review.rating }).map((_, i) => (
+                    <Star
+                      key={i}
+                      size={14}
+                      fill="currentColor"
+                      strokeWidth={0}
+                    />
+                  ))}
+                </div>
 
-      {/* Quote */}
-      <p className="font-display text-lg md:text-xl leading-relaxed text-ink max-w-lg">
-        "{review.quote}"
-      </p>
+                <p className="max-w-lg font-serif text-lg leading-relaxed text-[#315568] md:text-xl">
+                  "{review.quote}"
+                </p>
 
-      {/* Patient */}
-      <div className="mt-6 flex items-center gap-3">
-        <div className="w-9 h-9 rounded-full bg-ink flex items-center justify-center font-mono text-[10px] text-porcelain">
-          {review.name
-            .split(' ')
-            .map((p) => p[0])
-            .join('')}
-        </div>
+                <div className="mt-6 flex items-center gap-3">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#315568] font-mono text-[10px] text-white">
+                    {review.name
+                      .split(' ')
+                      .map((p) => p[0])
+                      .join('')}
+                  </div>
 
-        <div>
-          <p className="text-xs text-ink font-medium">
-            {review.name}
-          </p>
+                  <div>
+                    <p className="font-sans text-xs font-medium text-[#315568]">
+                      {review.name}
+                    </p>
 
-          <p className="font-mono text-[9px] uppercase tracking-wide text-charcoal/50">
-            {review.treatment}
-          </p>
-        </div>
-      </div>
-    </div>
-  </Reveal>
-</div>
-
+                    <p className="mt-1 font-mono text-[9px] uppercase tracking-wide text-[#6B8793]/70">
+                      {review.treatment}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          </div>
         </div>
       </div>
     </section>

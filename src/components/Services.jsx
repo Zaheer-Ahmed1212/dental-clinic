@@ -1,204 +1,127 @@
-import { ArrowUpRight } from 'lucide-react'
-import SectionHeading from './ui/SectionHeading'
+
+import {
+  Sparkles,
+  ShieldCheck,
+  HeartPulse,
+  Smile,
+  Stethoscope,
+  WandSparkles,
+  ArrowUpRight
+} from 'lucide-react'
 import Reveal from './ui/Reveal'
 
 const SERVICES = [
   {
-    index: '01',
-    name: 'Preventive & Hygiene',
-    description:
-      'Routine exams, cleans and fluoride therapy built around your calendar — most patients are in and out within forty minutes.',
-    tag: 'Every 6 months',
+    number: '01',
+    icon: Sparkles,
+    title: 'Preventive Care',
+    text: 'Gentle routine care designed to keep your teeth healthy, strong, and feeling their best.',
   },
   {
-    index: '02',
-    name: 'Cosmetic Dentistry',
-    description:
-      'Veneers, bonding and smile design planned digitally first, so you approve the shape and shade before we touch a single tooth.',
-    tag: 'Smile design',
+    number: '02',
+    icon: Smile,
+    title: 'Cosmetic Dentistry',
+    text: 'Thoughtful smile enhancements that bring balance, confidence, and a natural-looking finish.',
   },
   {
-    index: '03',
-    name: 'Restorative Dentistry',
-    description:
-      'Tooth-coloured fillings, crowns and bridges finished to match your bite and your neighbouring teeth, not a catalogue shade.',
-    tag: 'Fillings & crowns',
+    number: '03',
+    icon: ShieldCheck,
+    title: 'Restorative Dentistry',
+    text: 'Modern treatments to restore damaged teeth while protecting your long-term oral health.',
   },
   {
-    index: '04',
-    name: 'Orthodontics',
-    description:
-      'Clear aligner therapy for adults and teens, with in-house monitoring so you are not left guessing between visits.',
-    tag: 'Clear aligners',
+    number: '04',
+    icon: HeartPulse,
+    title: 'Gum Care',
+    text: 'Personalised periodontal care focused on healthier gums and a stronger foundation for your smile.',
   },
   {
-    index: '05',
-    name: 'Dental Implants',
-    description:
-      'Single-tooth to full-arch implant restoration, planned with 3D imaging and placed by our in-house surgical team.',
-    tag: 'Surgical + restorative',
+    number: '05',
+    icon: Stethoscope,
+    title: 'General Dentistry',
+    text: 'Comprehensive dental care for everyday needs, from examinations and hygiene to fillings.',
   },
   {
-    index: '06',
-    name: 'Emergency Care',
-    description:
-      'Chipped a tooth over the weekend? We hold same-day emergency slots every weekday morning for existing patients.',
-    tag: 'Same-day relief',
+    number: '06',
+    icon: WandSparkles,
+    title: 'Smile Transformations',
+    text: 'Complete smile planning combining modern techniques with a treatment approach built around you.',
   },
 ]
 
 export default function Services() {
   return (
-    <section id="services" className="bg-porcelain py-24 md:py-32">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+    <section
+      id="services"
+      className="bg-[#EAF7FB] px-5 py-20 sm:px-6 sm:py-24 md:px-10 md:py-28 lg:py-32"
+    >
+      <div className="mx-auto max-w-[1400px]">
+        <div className="max-w-[760px]">
+          <Reveal>
+            <span className="font-sans text-[10px] uppercase tracking-[0.22em] text-[#56B8D0] md:text-[11px]">
+              What we offer
+            </span>
+          </Reveal>
 
-        {/* Heading */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-14">
-          <div className="lg:col-span-7">
-            <Reveal>
-              <SectionHeading
-                eyebrow="What we treat"
-                title="Six ways we look after your mouth — none of them rushed."
-              />
-            </Reveal>
-          </div>
+          <Reveal delay={100}>
+            <h2 className="mt-4 max-w-[700px] font-serif text-[42px] leading-[1] tracking-[-0.035em] text-[#315568] sm:text-[52px] md:text-[64px] lg:text-[76px]">
+              Care that goes beyond the chair.
+            </h2>
+          </Reveal>
 
-     
+          <Reveal delay={180}>
+            <p className="mt-6 max-w-[570px] font-sans text-[15px] leading-[1.7] text-[#6B8793] sm:text-[16px] md:text-[17px]">
+              From everyday dental care to complete smile transformations,
+              every treatment is considered with your comfort, health, and
+              confidence in mind.
+            </p>
+          </Reveal>
         </div>
 
-        {/* Service Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {SERVICES.map((service, i) => (
-            <Reveal key={service.index} delay={i * 70}>
-              <a
-                href="#appointment"
-                className="
-                  group relative block min-h-[330px]
-                  overflow-hidden rounded-2xl
-                  border border-ink/10
-                  bg-white
-                  p-7 md:p-8
-                  shadow-md
-                  shadow-ink
-                  transition-all duration-500
-                  hover:-translate-y-2
-                  hover:shadow-[0_20px_50px_rgba(20,25,22,0.12)]
-                "
-              >
+        <div className="mt-14 grid gap-5 sm:mt-16 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+          {SERVICES.map((service, index) => {
+            const Icon = service.icon
 
-                {/* Background hover layer */}
-                <span
-                  aria-hidden="true"
-                  className="
-                    absolute inset-0
-                    bg-ink
-                    translate-y-full
-                    group-hover:translate-y-0
-                    transition-transform duration-500
-                    ease-[cubic-bezier(0.16,1,0.3,1)]
-                  "
-                />
-
-                {/* Content */}
-                <div className="relative z-10 flex h-full flex-col">
-
-                  {/* Top row */}
-                  <div className="flex items-center justify-between">
-                    <span
-                      className="
-                        font-sen text-xs
-                        text-ink
-                        group-hover:text-copper-light
-                        transition-colors duration-500
-                      "
-                    >
-                      {service.index}
+            return (
+              <Reveal key={service.number} delay={220 + index * 70}>
+                <article className="group relative h-full min-h-[330px] overflow-hidden rounded-2xl border border-[#C8E4EC] bg-[#DDF2F8] p-7 shadow-[0_8px_35px_rgba(49,85,104,0.06)] transition-all duration-500 hover:-translate-y-2 hover:bg-[#CBEAF3] hover:shadow-[0_20px_50px_rgba(49,85,104,0.12)] sm:p-8 lg:p-9">
+                  <div className="flex items-start justify-between">
+                    <span className="font-sans text-[11px] tracking-[0.18em] text-[#56B8D0]">
+                      {service.number}
                     </span>
 
-                    <div
-                      className="
-                        flex h-10 w-10 items-center justify-center
-                        rounded-full
-                        border border-ink/10
-                        group-hover:border-porcelain/20
-                        transition-colors duration-500
-                      "
-                    >
-                      <ArrowUpRight
-                        size={18}
-                        strokeWidth={1.5}
-                        className="
-                          text-ink
-                          group-hover:text-copper-light
-                          transition-all duration-500
-                          group-hover:translate-x-1
-                          group-hover:-translate-y-1
-                        "
-                      />
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full border border-[#C8E4EC] text-[#315568] transition-all duration-500 group-hover:border-[#56B8D0] group-hover:bg-[#56B8D0] group-hover:text-white">
+                      <Icon size={20} strokeWidth={1.5} />
                     </div>
                   </div>
 
-                  {/* Service name */}
                   <div className="mt-12">
-                    <h3
-                      className="
-                        font-serif
-                        text-2xl md:text-[28px]
-                        leading-tight
-                        text-ink
-                        group-hover:text-porcelain
-                        transition-colors duration-500
-                      "
-                    >
-                      {service.name}
+                    <h3 className="font-serif text-[29px] leading-[1.05] tracking-[-0.025em] text-[#315568] transition-colors duration-300 group-hover:text-[#3FA4BE] sm:text-[31px]">
+                      {service.title}
                     </h3>
+
+                    <p className="mt-5 max-w-[370px] font-sans text-[13px] leading-[1.75] text-[#6B8793] sm:text-[14px]">
+                      {service.text}
+                    </p>
                   </div>
 
-                  {/* Description */}
-                  <p
-                    className="
-                      mt-5
-                      text-sm
-                      font-serif
-                      leading-relaxed
-                      text-charcoal/60
-                      group-hover:text-porcelain/70
-                      transition-colors duration-500
-                    "
-                  >
-                    {service.description}
-                  </p>
-
-                  {/* Bottom */}
-                  <div className="mt-auto pt-8">
-                    <span
-                      className="
-                        inline-flex
-                        rounded-full
-                        font-serif
-                        border border-ink/10
-                        px-3 py-1.5
-                        font-mono
-                        text-[9px]
-                        uppercase
-                        tracking-[0.15em]
-                        text-charcoal/50
-                        group-hover:border-porcelain/20
-                        group-hover:text-porcelain/60
-                        transition-colors duration-500
-                      "
-                    >
-                      {service.tag}
-                    </span>
+                  <div className="absolute bottom-7 left-7 flex items-center gap-2 font-sans text-[9px] uppercase tracking-[0.18em] text-[#6B8793]/70 transition-colors duration-300 group-hover:text-[#3FA4BE] sm:bottom-8 sm:left-8 lg:bottom-9 lg:left-9">
+                    Explore treatment
+                    <ArrowUpRight
+                      size={14}
+                      strokeWidth={1.5}
+                      className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+                    />
                   </div>
 
-                </div>
-              </a>
-            </Reveal>
-          ))}
+                  <div className="absolute -bottom-16 -right-16 h-40 w-40 rounded-full bg-[#56B8D0]/10 transition-transform duration-500 group-hover:scale-[1.8]" />
+                </article>
+              </Reveal>
+            )
+          })}
         </div>
-
       </div>
     </section>
   )
 }
+
