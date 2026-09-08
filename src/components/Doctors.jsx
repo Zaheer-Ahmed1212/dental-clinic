@@ -19,7 +19,7 @@ const TEAM = [
   },
   {
     initials: 'PN',
-    name: 'Dr. Priya Nandan',
+    name: 'Dr. Bilal Abbas',
     role: 'Orthodontics Lead',
     credentials: 'DMD, Sydney · 11 yrs',
     focus: 'Clear aligners & retainers',
